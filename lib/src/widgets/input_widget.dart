@@ -345,46 +345,46 @@ class _InputWidgetState extends State<_InputWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          widget.selectorType == PhoneInputSelectorType.DROPDOWN
-              ? provider.countries.isNotEmpty && provider.countries.length > 1
-                  ? DropdownButtonHideUnderline(
-                      child: DropdownButton<Country>(
-                        hint: _Item(country: provider.country),
-                        value: provider.country,
-                        items: _mapCountryToDropdownItem(provider.countries),
-                        onChanged: widget.isEnabled
-                            ? (value) {
-                                provider.country = value;
-                                _phoneNumberControllerListener();
-                              }
-                            : null,
-                      ),
-                    )
-                  : _Item(country: provider.country)
-              : FlatButton(
-                  padding: EdgeInsetsDirectional.only(start: 12, end: 4),
-                  onPressed: provider.countries.isNotEmpty &&
-                          provider.countries.length > 1
-                      ? () async {
-                          Country selected;
-                          if (widget.selectorType ==
-                              PhoneInputSelectorType.BOTTOM_SHEET) {
-                            selected =
-                                await _showCountrySelectorBottomSheet(provider);
-                          } else {
-                            selected =
-                                await _showCountrySelectorDialog(provider);
-                          }
+          // widget.selectorType == PhoneInputSelectorType.DROPDOWN
+          //     ? provider.countries.isNotEmpty && provider.countries.length > 1
+          //         ? DropdownButtonHideUnderline(
+          //             child: DropdownButton<Country>(
+          //               hint: _Item(country: provider.country),
+          //               value: provider.country,
+          //               items: _mapCountryToDropdownItem(provider.countries),
+          //               onChanged: widget.isEnabled
+          //                   ? (value) {
+          //                       provider.country = value;
+          //                       _phoneNumberControllerListener();
+          //                     }
+          //                   : null,
+          //             ),
+          //           )
+          //         : _Item(country: provider.country)
+          //     : FlatButton(
+          //         padding: EdgeInsetsDirectional.only(start: 12, end: 4),
+          //         onPressed: provider.countries.isNotEmpty &&
+          //                 provider.countries.length > 1
+          //             ? () async {
+          //                 Country selected;
+          //                 if (widget.selectorType ==
+          //                     PhoneInputSelectorType.BOTTOM_SHEET) {
+          //                   selected =
+          //                       await _showCountrySelectorBottomSheet(provider);
+          //                 } else {
+          //                   selected =
+          //                       await _showCountrySelectorDialog(provider);
+          //                 }
 
-                          if (selected != null) {
-                            provider.country = selected;
-                            _phoneNumberControllerListener();
-                          }
-                        }
-                      : null,
-                  child: _Item(country: provider.country),
-                ),
-          SizedBox(width: 12),
+          //                 if (selected != null) {
+          //                   provider.country = selected;
+          //                   _phoneNumberControllerListener();
+          //                 }
+          //               }
+          //             : null,
+          //         child: _Item(country: provider.country),
+          //       ),
+          // SizedBox(width: 12),
           Flexible(
             child: TextFormField(
               textDirection: TextDirection.ltr,
